@@ -8,7 +8,7 @@ import createLogger from 'redux-logger';
 
 import { Router, Route, history } from 'react-router';
 
-import { Items, SimpleComponent } from './containers/';
+import { Buzz, Items, SimpleComponent } from './containers/';
 
 const logger = createLogger({collapsed: true});
 const reducersApp = combineReducers(reducers);
@@ -23,6 +23,7 @@ export default class App extends Component {
             <Route path="/" component={ Main }>
               <Route path="simple" component={ SimpleComponent } />
               <Route path="items" component={ Items } />
+              <Route path="buzz" component={ Buzz } />
             </Route>
           </Router>
         </Provider>

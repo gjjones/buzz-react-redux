@@ -46,6 +46,10 @@ export default class Main extends Component {
                 <Link to={ `/items/` }>
                   <button type="button" className="btn btn-default">Complex component</button>
                 </Link>
+                {' '}
+                <Link to={ `/buzz/` }>
+                  <button type="button" className="btn btn-default">Buzz component</button>
+                </Link>
               </div>
               { this.props.children }
             </div>
