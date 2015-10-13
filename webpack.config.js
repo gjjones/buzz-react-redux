@@ -57,8 +57,8 @@ module.exports = {
       loaders: ['react-hot', 'babel-loader?optional[]=runtime&stage=0&plugins=jsx-control-statements/babel'],
       exclude: /node_modules/
     }, {
-      test: /\.scss$/,
-      loader: "css!postcss-loader!sass"
+      test: /\.less$/,
+      loader: "css!postcss-loader!less"
     }]
   },
   postcss: function() {

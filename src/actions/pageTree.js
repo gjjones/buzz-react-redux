@@ -1,13 +1,13 @@
-export function add(componentName) {
+export function add(componentConfig) {
   return {
     type: 'PAGETREE_ADD',
-    componentName,
+    componentConfig,
   };
 }
 
-export function del(componentName) {
+export function del(componentConfig) {
   return {
     type: 'PAGETREE_DELETE',
-    componentName,
+    componentConfig,
   };
 }

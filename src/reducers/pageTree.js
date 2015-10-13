@@ -9,10 +9,7 @@ export function pageTree(state = initialState, action) {
       ...state,
       pageTree: [
         ...state.pageTree,
-        {
-          component: action.componentName,
-          children: []
-        },
+        action.componentConfig
       ],
     };
 

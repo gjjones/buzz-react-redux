@@ -44,7 +44,8 @@
     "imports-loader": "^0.6.4",
     "jquery": "^2.1.4",
     "jsx-control-statements": "^1.1.1",
-    "node-sass": "^3.1.2",
+    "less": "^2.5.3",
+    "less-loader": "^2.2.1",
     "postcss-loader": "^0.6.0",
     "react": "^0.14.0-rc1",
     "react-document-meta": "^2.0.0-rc2",
@@ -57,11 +58,13 @@
     "redux-logger": "1.0.6",
     "redux-react-router": "^1.0.0-beta1",
     "redux-thunk": "^0.1.0",
-    "sass-loader": "^2.0.1",
     "style-loader": "^0.12.3",
     "url-loader": "^0.5.6",
     "webpack": "^1.9.6",
     "webpack-dev-server": "^1.8.2",
     "yargs": "^3.18.0"
+  },
+  "dependencies": {
+    "es5-shim": "^4.1.14"
   }
 }
