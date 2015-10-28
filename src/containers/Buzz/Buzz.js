@@ -9,6 +9,12 @@ import * as components from 'components';
 // Actions
 import * as actionCreators from 'actions/pageTree';
 
+const mapChildComponents = function(component, index) {
+	var children = component.children ? component.children.map(mapChildComponents) : [];
+	return component.name ?
+		React.createElement(components[component.name] || component.name, {...component, key:index}, children) : component;
+}
+
 @connect(state => state.pageTree)
 export default class Buzz extends Component {
 
@@ -23,14 +29,13 @@ export default class Buzz extends Component {
       this.actions.add(componentType);
     };
 
-    var _components = pageTree.map(function(component, index){
-    	return React.createElement(components[component.name] || component.name, {...component, key:index}, component.children);
-    });
+    var _components = pageTree.map(mapChildComponents);
 
     return (
       <div>
         {_components}
         <div className="form-group">
+          <textarea onChange={(evt) => this.actions.set(evt.target.value)} />
           <button className="btn btn-default" onClick={() => _addClick({name:'div', children: ['Sick div, bruh']})}>add div</button>
           {' '}
           <button className="btn btn-default" onClick={() => _addClick({name:'Cats'})}>add Cats</button>

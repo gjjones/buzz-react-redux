@@ -21,6 +21,14 @@ export function pageTree(state = initialState, action) {
       ],
     };
 
+  case 'PAGETREE_SET':
+    return {
+      ...state,
+      pageTree: [
+        action.pageConfig
+      ],
+    };
+
   default:
     return state;
   }
