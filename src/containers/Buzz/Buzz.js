@@ -28,6 +28,15 @@ export default class Buzz extends Component {
     const _addClick = (componentType) => {
       this.actions.add(componentType);
     };
+    const _textAreaChange = (evt) => {
+    	var pageConfig;
+		try {
+			pageConfig = JSON.parse(evt.target.value);
+		} catch (e) {
+			return;
+		}
+		this.actions.set(pageConfig);
+    };
 
     var _components = pageTree.map(mapChildComponents);
 
@@ -35,7 +44,7 @@ export default class Buzz extends Component {
       <div>
         {_components}
         <div className="form-group">
-          <textarea onChange={(evt) => this.actions.set(evt.target.value)} />
+          <textarea onChange={_textAreaChange} />
           <button className="btn btn-default" onClick={() => _addClick({name:'div', children: ['Sick div, bruh']})}>add div</button>
           {' '}
           <button className="btn btn-default" onClick={() => _addClick({name:'Cats'})}>add Cats</button>

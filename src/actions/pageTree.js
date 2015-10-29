@@ -13,13 +13,6 @@ export function del(componentConfig) {
 }
 
 export function set(pageConfig) {
-	if (typeof pageConfig === 'string') {
-		try {
-			pageConfig = JSON.parse(pageConfig);
-		} catch (e) {
-			return {};
-		}
-	}
   return {
     type: 'PAGETREE_SET',
     pageConfig,
