@@ -9,7 +9,7 @@ export function pageTree(state = initialState, action) {
       ...state,
       pageTree: [
         ...state.pageTree,
-        action.componentConfig
+        action.payload
       ],
     };
 
@@ -25,7 +25,7 @@ export function pageTree(state = initialState, action) {
     return {
       ...state,
       pageTree: [
-        action.pageConfig
+        action.payload
       ],
     };
 

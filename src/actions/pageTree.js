@@ -1,20 +1,19 @@
 export function add(componentConfig) {
   return {
     type: 'PAGETREE_ADD',
-    componentConfig,
+    payload: componentConfig
   };
 }
 
-export function del(componentConfig) {
+export function del() {
   return {
-    type: 'PAGETREE_DELETE',
-    componentConfig,
+    type: 'PAGETREE_DELETE'
   };
 }
 
 export function set(pageConfig) {
   return {
     type: 'PAGETREE_SET',
-    pageConfig,
+    payload: pageConfig
   };
 }
