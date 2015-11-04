@@ -3,9 +3,6 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as components from 'components';
 
-// Component styles
-// import styles from './SimpleComponent.styles.js';
-
 // Actions
 import * as actionCreators from 'actions/pageTree';
 
