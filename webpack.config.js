@@ -15,6 +15,7 @@ module.exports = {
 	output: {
 		filename: 'bundle.js',
 		path: path.join(__dirname, '/dist/'),
+		pathinfo: true,
 		publicPath: '/dist/'
 	},
 
@@ -32,6 +33,8 @@ module.exports = {
 		extensions: ['', '.jsx', '.js', '.json'],
 		modulesDirectories: ['src', 'node_modules']
 	},
+
+	devtool: 'eval',
 
 	module: {
 		loaders: [{
