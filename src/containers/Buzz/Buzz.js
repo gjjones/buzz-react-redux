@@ -12,43 +12,43 @@ const mapChildComponents = function(component, index) {
 		React.createElement(components[component.name] || component.name, {...component, key:index}, children) : component;
 }
 
-@connect(state => state.pageTree)
+@connect(state => state.pageTree.toJS())
 export default class Buzz extends Component {
 
-  constructor(props) {
-    super(props);
-    this.actions = bindActionCreators(actionCreators, this.props.dispatch);
-  }
+	constructor(props) {
+		super(props);
+		this.actions = bindActionCreators(actionCreators, this.props.dispatch);
+	}
 
-  render() {
-    const { pageTree } = this.props;
-    const _addClick = (componentType) => {
-      this.actions.add(componentType);
-    };
-    const _textAreaChange = (evt) => {
-    	var pageConfig;
-		try {
-			pageConfig = JSON.parse(evt.target.value);
-		} catch (e) {
-			return;
-		}
-		this.actions.set(pageConfig);
-    };
+	render() {
+		const { pageTree } = this.props;
+		const _addClick = (componentType) => {
+			this.actions.add(componentType);
+		};
+		const _textAreaChange = (evt) => {
+			var pageConfig;
+			try {
+				pageConfig = JSON.parse(evt.target.value);
+			} catch (e) {
+				return;
+			}
+			this.actions.set(pageConfig);
+		};
 
-    var _components = pageTree.map(mapChildComponents);
+		var _components = pageTree.map(mapChildComponents);
 
-    return (
-      <div>
-        {_components}
-        <div className="form-group">
-          <textarea onChange={_textAreaChange} />
-          <button className="btn btn-default" onClick={() => _addClick({name:'div', children: ['Sick div, bruh']})}>add div</button>
-          {' '}
-          <button className="btn btn-default" onClick={() => _addClick({name:'Cats'})}>add Cats</button>
-          {' '}
-          <button className="btn btn-default" onClick={() => this.actions.del()}>delete</button>
-        </div>
-      </div>
-    );
-  }
+		return (
+		<div>
+			{_components}
+			<div className="form-group">
+				<textarea onChange={_textAreaChange} />
+				<button className="btn btn-default" onClick={() => _addClick({name:'div', children: ['Sick div, bruh']})}>add div</button>
+				{' '}
+				<button className="btn btn-default" onClick={() => _addClick({name:'Cats'})}>add Cats</button>
+				{' '}
+				<button className="btn btn-default" onClick={() => this.actions.del()}>delete</button>
+			</div>
+		</div>
+		);
+	}
 }
