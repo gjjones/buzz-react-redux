@@ -3,6 +3,9 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 import * as components from 'components';
 import * as actionCreators from 'actions/pageTree';
+import * as spotlightActionCreators from 'actions/spotlight';
+
+const { Spinner } = components; 
 
 const mapChildComponents = function(component, index) {
 	var children = component.children ? component.children.map(mapChildComponents) : [];
@@ -15,7 +18,7 @@ var Buzz = React.createClass({
 	mixins: [PureRenderMixin],
 
 	render: function() {
-		const { pageTree } = this.props;
+		const { pageTree, spotlight } = this.props;
 		const _addClick = (componentType) => {
 			this.props.add(componentType);
 		};
@@ -41,7 +44,14 @@ var Buzz = React.createClass({
 				<button className="btn btn-default" onClick={() => _addClick({name:'Cats'})}>add Cats</button>
 				{' '}
 				<button className="btn btn-default" onClick={() => this.props.del()}>delete</button>
+				{' '}
+				<button className="btn btn-default" onClick={() => this.props.fetch()}>fetch spotlight</button>
 			</div>
+			<If condition={spotlight.get('fetching')}>
+				<Spinner />
+			<Else />
+				<div>{spotlight.getIn(['data', 'heading'])}</div>
+			</If>
 		</div>
 		);
 	}
@@ -49,11 +59,12 @@ var Buzz = React.createClass({
 
 var mapStateToProps = function(state) {
 	return {
-		pageTree: state.pageTree
+		pageTree: state.pageTree,
+		spotlight: state.spotlight
 	};
 };
 
 export default connect(
 	mapStateToProps,
-	actionCreators
+	{ ...actionCreators, ...spotlightActionCreators }
 )(Buzz)
