@@ -1,29 +1,23 @@
 import React, { Component } from 'react';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import * as components from 'components';
-
-// Actions
 import * as actionCreators from 'actions/pageTree';
 
 const mapChildComponents = function(component, index) {
 	var children = component.children ? component.children.map(mapChildComponents) : [];
 	return component.name ?
 		React.createElement(components[component.name] || component.name, {...component, key:index}, children) : component;
-}
+};
 
-@connect(state => state.pageTree.toJS())
-export default class Buzz extends Component {
+var Buzz = React.createClass({
 
-	constructor(props) {
-		super(props);
-		this.actions = bindActionCreators(actionCreators, this.props.dispatch);
-	}
+	mixins: [PureRenderMixin],
 
-	render() {
+	render: function() {
 		const { pageTree } = this.props;
 		const _addClick = (componentType) => {
-			this.actions.add(componentType);
+			this.props.add(componentType);
 		};
 		const _textAreaChange = (evt) => {
 			var pageConfig;
@@ -46,9 +40,20 @@ export default class Buzz extends Component {
 				{' '}
 				<button className="btn btn-default" onClick={() => _addClick({name:'Cats'})}>add Cats</button>
 				{' '}
-				<button className="btn btn-default" onClick={() => this.actions.del()}>delete</button>
+				<button className="btn btn-default" onClick={() => this.props.del()}>delete</button>
 			</div>
 		</div>
 		);
 	}
-}
+});
+
+var mapStateToProps = function(state) {
+	return {
+		pageTree: state.pageTree
+	};
+};
+
+export default connect(
+	mapStateToProps,
+	actionCreators
+)(Buzz)
