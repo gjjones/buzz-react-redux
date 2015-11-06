@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import DocumentMeta from 'react-document-meta';
-import { Buzz } from 'containers';
+import { Demo } from 'containers';
 import 'bootstrap-webpack';
 
 // Global styles
@@ -27,7 +27,7 @@ export default class Main extends Component {
     return (
     	<div>
 	        <DocumentMeta {...metaData} />
-	    	<Buzz />
+	    	<Demo />
 	    </div>
     );
   }

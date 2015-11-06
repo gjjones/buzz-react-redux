@@ -13,7 +13,7 @@ const initialState = Immutable.fromJS({
 });
 
 export function spotlight(state = initialState, action) {
-	switch (action.type) {	
+	switch (action.type) {
 	case 'SPOTLIGHT_FETCH':
 		return state.set('fetching', true);
 	case 'SPOTLIGHT_SYNC':
