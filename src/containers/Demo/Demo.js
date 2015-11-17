@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 import * as components from 'components';
@@ -25,8 +25,12 @@ var Demo = React.createClass({
 			} catch (e) {
 				return;
 			}
-			this.actions.set(pageConfig);
+			this.props.set(pageConfig);
 		};
+		const _fetch = () => {
+			this.props.setFetching(true);
+			this.props.fetch();
+		}
 
 		return (
 		<div>
