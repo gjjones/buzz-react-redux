@@ -1,7 +1,7 @@
-Redux Easy Boilerplate
+Buzz-React-Redux
 =========================
-
-- [Demo](http://anorudes.github.io/redux-easy-boilerplate/)
+## Trello Board for ToDo Items
+https://trello.com/c/k5Mh25eC/1-buzz-react-redux
 
 ## Table of Contents
 
