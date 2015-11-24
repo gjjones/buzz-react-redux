@@ -6,7 +6,7 @@ import React, { Component } from 'react';
 export default class Cats extends Component {
   render() {
     return (
-      <div className={this.props.className}>
+      <div {...this.props}>
       	<h4>Cat photos. How original.</h4>
       	<img src='http://lorempixel.com/640/480/cats/' height='480' width='640' />
       </div>
