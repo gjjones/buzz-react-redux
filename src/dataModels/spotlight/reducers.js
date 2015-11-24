@@ -1,5 +1,7 @@
 import Immutable from 'immutable';
+import * as actionTypes from './actionTypes';
 
+// Always define initial state at top
 const initialState = Immutable.fromJS({
 	url: '',
 	fetching: false,
@@ -12,13 +14,14 @@ const initialState = Immutable.fromJS({
 	}
 });
 
-export function spotlight(state = initialState, action) {
+// Always export reducer function as default
+export default function (state = initialState, action) {
 	switch (action.type) {
-	case 'SPOTLIGHT_FETCH':
+	case actionTypes.FETCH:
 		return state.set('fetching', true);
-	case 'SPOTLIGHT_SYNC':
+	case actionTypes.SYNC:
 		return state.merge({data: Immutable.Map(action.payload), fetching: false});
-	case 'SPOTLIGHT_ERROR':
+	case actionTypes.ERROR:
 		return state.merge({...initialState.toJS(), heading: 'Something went wrong... :('});
 	default:
 		return state;

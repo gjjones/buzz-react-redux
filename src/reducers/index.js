@@ -1,2 +1,2 @@
-export { pageTree } from './pageTree.js';
-export { spotlight } from './spotlight.js';
+export { pageTree } from './pageTree';
+export { reducer as spotlight } from '../dataModels/spotlight';

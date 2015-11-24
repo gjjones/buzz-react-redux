@@ -1,3 +1,5 @@
+import * as actionTypes from './actionTypes';
+
 const mockData = {
 	caption: '',
 	heading: 'Mock Data Spotlight Heading',
@@ -9,11 +11,11 @@ const mockData = {
 export function fetch() {  
 	return dispatch => {
 		dispatch({
-			type: 'SPOTLIGHT_FETCH'
+			type: actionTypes.FETCH
 		});
 		setTimeout(() => {
 			dispatch({
-				type: 'SPOTLIGHT_SYNC',
+				type: actionTypes.SYNC,
 				payload: mockData
 			});
 		}, 4500);
@@ -22,14 +24,14 @@ export function fetch() {
 
 export function sync(data) {
 	return {
-		type: 'SPOTLIGHT_SYNC',
+		type: actionTypes.SYNC,
 		payload: data
 	};
 }
 
 export function error(err) {
 	return {
-		type: 'SPOTLIGHT_ERROR',
+		type: actionTypes.ERROR,
 		error: true,
 		payload: err
 	};

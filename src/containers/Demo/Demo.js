@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as components from 'components';
 import * as containers from 'containers';
 import * as actionCreators from 'actions/pageTree';
-import * as spotlightActionCreators from 'actions/spotlight';
+import { actions as spotlightActionCreators } from 'dataModels/spotlight';
 
 const { Spinner } = components;
 const { Buzz } = containers;
