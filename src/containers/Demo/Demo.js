@@ -35,7 +35,7 @@ var Demo = React.createClass({
 		return (
 		<div>
 			<div className="form-group">
-				<textarea value={JSON.stringify(pageTree.toJS())} onChange={_textAreaChange} />
+				<textarea value={JSON.stringify(pageTree.toJS(), null, '\t')} onChange={_textAreaChange} />
 				<button className="btn btn-default" onClick={() => _addClick({name:'div', children: ['Sick div, bruh']})}>add div</button>
 				{' '}
 				<button className="btn btn-default" onClick={() => _addClick({name:'Cats'})}>add Cats</button>
