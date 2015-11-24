@@ -1,0 +1,1 @@
+export { default as onClick_fetchSpotlight } from './onClick_fetchSpotlight';

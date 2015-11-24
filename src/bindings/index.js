@@ -1,1 +1,1 @@
-export { default as demoSpinner } from './demoSpinner.js';
+export { default as styleFetchText } from './styleFetchText';
