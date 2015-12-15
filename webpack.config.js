@@ -23,10 +23,7 @@ module.exports = {
 		new ExtractTextPlugin('bundle.css'),
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.optimize.OccurenceOrderPlugin(),
-		new webpack.NoErrorsPlugin(),
-		new webpack.ProvidePlugin({
-			jQuery: "jquery"
-		})
+		new webpack.NoErrorsPlugin()
 	],
 
 	resolve: {
@@ -38,9 +35,6 @@ module.exports = {
 
 	module: {
 		loaders: [{
-			test: /bootstrap\/js\//,
-			loader: 'imports?jQuery=jquery'
-		}, {
 			test: /\.woff(\?v=\d+\.\d+\.\d+)?$/,
 			loader: "url?limit=10000&minetype=application/font-woff"
 		}, {
@@ -62,6 +56,9 @@ module.exports = {
 		}, {
 			test: /\.less$/,
 			loader: "css!postcss-loader!less"
+		}, {
+			test: /\.(jpg)|(gif)|(png)$/,
+			loader: "file"
 		}]
 	},
 	postcss: function() {

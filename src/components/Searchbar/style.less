@@ -1,0 +1,256 @@
+// DONT EDIT THIS IMPORT //
+@import (reference) '~edna/edna.less';
+// YOU CAN EDIT BELOW HERE //
+
+
+/*
+	NOTES
+	- only nest classes one level deep
+	- block modifiers are chained with the block
+	- keep classes in order of markup
+		- block
+		- block modifier
+		- element
+		- element modifier
+	- when a block is in a block it gets both classes
+		- will mean a few classes on certian elements
+		- .searchbar.searchbar_w-btn.btn.btn_icon-only
+	- styles will need to be split up according to what they affect
+		-
+*/
+
+.ui-helper-hidden-accessible {
+	.hidden;
+}
+.ui-autocomplete {
+	.fontfamily(sans);
+	.fontsize(1.3);
+	.radius(0);
+
+	z-index: @index-1;
+
+	padding: 0;
+
+	color: #222;
+	list-style-type: none;
+
+	background-color: #fff;
+	background-image: none !important; // important needed to override jQuery UI image
+	border: 1px solid #aaa;
+	.ui-menu-item {
+		margin: 0;
+		a {
+			.truncate;
+
+			display: block;
+			padding: 6px 4px;
+
+			line-height: 1.25em;
+			color: #000;
+			cursor: pointer;
+			> strong {
+				color: #000;
+			}
+			&.ui-state-focus,
+			&.ui-state-active {
+				margin: 0;
+
+				color: #fff;
+
+				background-color: #0080ff;
+				> strong {
+					color: #fff;
+				}
+			}
+		}
+		&:hover a {
+			color: #fff;
+			text-decoration: none;
+
+			background-color: #0080ff;
+			> strong {
+				color: #fff;
+			}
+		}
+		&:first-child {
+			margin-top: 0;
+			a {
+				&.ui-state-focus,
+				&.ui-state-active {
+					margin-top: 0;
+				}
+			}
+		}
+		&:last-child {
+			margin-bottom: 0;
+			a {
+				&.ui-state-focus,
+				&.ui-state-active {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+	.ui-corner-all {
+		.radius(0);
+
+		background-image: none;
+		border-style: solid;
+		border-width: 0;
+	}
+}
+.ui-autocomplete {
+	z-index: @index-9;
+
+	padding: 5px;
+
+	border: 1px solid lighten(#aaa,13.5%);
+	.auto-complete-heading {
+		.fontsize(1.5);
+
+		padding-top: 10px;
+		margin: 5px 5px 5px 3px;
+
+		font-weight: bold;
+		color: @colorP2;
+
+		border-top: 1px solid lighten(#aaa,20.5%);
+		&:first-child {
+			padding-top: 0;
+
+			border-top: none;
+		}
+	}
+	.ui-menu-item {
+		.fontsize(1.3);
+
+		line-height: 26px;
+		a {
+			color: @colorS4;
+		}
+	}
+	.auto-complete-section {
+		margin-left: 16px;
+	}
+}
+.media-block.t1 {
+	top: 0 !important;
+}
+/* NEW STUFF */
+.searchbar {
+	position: relative;
+
+	display: block;
+	width: 100%;
+
+	.respond-min(@md-mq, {
+		display: inline-block;
+		width: 80%;
+		max-width: 725px;
+	});
+
+
+	// BLOCK MODIFIERS
+	// classic
+	&_classic {
+		z-index: 0;
+		max-width: 855px;
+ 	}
+	&_classic &__input-txt {
+		.fontfamily(lucida);
+		.fontsize(1.4);
+		height: 30px;
+		padding: 2.5px 23px 2.5px 5px;
+		border-color: #aaa8a8;
+		box-shadow: none;
+	}
+	&_classic &__btn {
+		position: relative;
+		float: right;
+		margin-left: 10px;
+	}
+	// full width
+	&_full-width {
+		margin-bottom: 20px;
+		border: 1px solid #b6b6b6;
+		border-radius: 5px;
+		width: 100%;
+		max-width: none;
+ 	}
+	&_full-width &__input-group {
+		position: relative;
+		display: block;
+		padding-right: 30px;
+	}
+	&_full-width &__input-reset {
+		display: block;
+	}
+	&_full-width &__input-txt {
+		padding: 2.5px 5px;
+		border-width: 0;
+		box-shadow: none;
+	}
+	&_full-width &__reset {
+		display: none;
+	}
+	&_full-width &__btn {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+
+	// ELEMENTS
+	&__input-group {
+		display: block;
+		width: 100%;
+		.respond-min(@md-mq, {
+			display: table-row;
+		});
+	}
+	&__input-reset {
+		position: absolute;
+		left: 0;
+
+		width: 100%;
+		.respond-min(@md-mq, {
+			position: relative;
+		});
+	}
+	&__input-txt {
+		.fontsize(1.6);
+
+		height: 46px;
+		padding-right: 95px;
+
+		box-shadow: #bbb9b9 0 0 9px -2px inset;
+
+		.respond-min(@md-mq, {
+			height: 40px;
+		});
+	}
+	&__reset {
+		top: 22px;
+		right: 70px;
+		.respond-min(@md-mq, {
+			position: relative;
+		});
+	}
+	&__btn {
+		position: relative;
+
+		float: right;
+		margin: 5px 5px 5px 0;
+		.respond-min(@md-mq, {
+			margin: 0 0 0 10px !important;
+		});
+	}
+	// ELEMENT MODIFIERS
+}
+
+// this is not the right place for this...
+fieldset {
+	padding: 0;
+	margin: 0;
+
+	border: none;
+}

@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import DocumentMeta from 'react-document-meta';
-import { Demo } from 'containers';
-import 'bootstrap-webpack';
 
 // Global styles
-// import 'style!./styles/main.scss';
+import '!style!css!less!edna/edna.less';
 
 // Application components
-// import { Header, Typography, Footer } from 'components';
+import { Demo } from 'containers';
 
 export default class Main extends Component {
 

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { compose, createStore, applyMiddleware, combineReducers } from 'redux';
 import {  Provider } from 'react-redux';
-import Main from './Main';
 import * as reducers from 'reducers';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
+import Main from './Main';
 
 // Redux DevTools store enhancers
 import { devTools, persistState } from 'redux-devtools';

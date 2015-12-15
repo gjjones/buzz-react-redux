@@ -1,0 +1,193 @@
+// DONT EDIT THIS IMPORT //
+@import (reference) '~edna/edna.less';
+// YOU CAN EDIT BELOW HERE //
+
+/* BUTTON WIDGET */
+
+.btn {
+	// BLOCK MODIFIERS
+	// classic
+	&_classic {
+		.fontsize(1.4);
+		padding: 0 15px;
+		font-weight: bold;
+		height: 30px !important;
+		background-color: @colorP3 !important;
+		border-color: @colorP3 !important;
+		color: #fff;
+		&:hover {
+			background-color: darken(@colorP3, 20%) !important;
+			border-color: darken(@colorP3, 20%) !important;
+		}
+	}
+	// responsive
+	&_responsive {
+		background-color: orange !important;
+		border-color: orange !important;
+		.fontsize(0);
+		height: 36px !important;
+		padding: 0 15px;
+
+		.respond-min(@md-mq, {
+			.fontsize(1.9);
+			height: 40px !important;
+			color: #fff;
+			display: table-cell !important;
+			padding-left: 10px;
+			vertical-align: top !important;
+			padding: 0 21px;
+			border-radius: 4px !important;
+			&:hover {
+				background-color: #cb7005 !important;
+				border-color: #cb7005 !important;
+			}
+		});
+	}
+	&_responsive &__icon {
+		.respond-min(@md-mq, {
+			display: none !important;
+		});
+	}
+	// responsive
+	&_icon-only {
+		width: 30px;
+		padding: 0;
+		.fontsize(0);
+		background: none;
+		border: none;
+		margin: 0 !important;
+		&:hover {
+			background-color: transparent !important;
+			border-color: transparent !important;
+		}
+	}
+	&_icon-only &__icon {
+		width: 13px !important;
+		height: 13px !important;
+	}
+	// ELEMENTS
+	&__icon {
+		display: inline-block;
+		width: 25px !important;
+		height: 25px !important;
+		margin: auto !important;
+	}
+
+	.unstyled() {
+		height: auto;
+		padding: 0;
+
+		background-color: transparent;
+		border: 0;
+		&:hover {
+			background-color: transparent;
+		}
+	}
+	&-icon {
+		.unstyled();
+
+		padding: 10px;
+	}
+	.icon {
+		display: inline-block;
+		width: 15px;
+		height: 15px;
+		margin: 0 20px 0 0;
+	}
+	// CONFIGURATION 1
+	&.t1 {
+		@color: @link-color;
+		// text link-button
+
+		position: relative;
+
+		padding: 0;
+
+		font-weight: normal;
+		color: @color;
+
+		background: none;
+		border: none;
+		&:hover {
+			color: @link-color-active;
+		}
+	}
+	// END CONFIGURATION 1
+	// CONFIGURATION 2
+	&.t2 {
+		// main buttons with icons
+		position: relative;
+
+		padding-left: 25px;
+		.icon {
+			position: absolute;
+			left: 5px;
+		}
+	}
+	// END CONFIGURATION 2
+	// CONFIGURATION 3
+	&.t3 {
+		// main buttons with icons
+		position: relative;
+
+		padding-right: 25px;
+		.icon {
+			position: absolute;
+			right: 5px;
+
+			margin: 0 0 0 20px;
+		}
+	}
+	// END CONFIGURATION 3
+	// CONFIGURATION 4
+	&.t4 {
+		.icon {
+			width: 13px;
+			height: 13px;
+			margin: -3px 5px 0 0;
+
+			vertical-align: middle;
+
+			background-size: 100%;
+		}
+	}
+	// END CONFIGURATION 4
+	// CONFIGURATION 5
+	&.t5 {
+		float: right;
+		height: @tbar-height;
+		padding-right: 10px;
+		padding-left: 10px;
+		margin-right: 15px;
+		.icon {
+			width: 24px;
+			height: 24px;
+			margin: 0;
+		}
+		@media @mq-md, @mq-lg, @mq-xl {
+			& {
+				display: none;
+			}
+		}
+	}
+	// END CONFIGURATION 5
+	// CONFIGURATION 6
+	&.t6 {
+		background-color: transparent;
+		border: none;
+		.icon {
+			margin: 0;
+		}
+	}
+	// END CONFIGURATION 6
+	// CONFIGURATION 7
+	&.t7 {
+		float: right;
+		.icon {
+			width: 24px;
+			height: 24px;
+			margin: 0;
+		}
+	}
+	// END CONFIGURATION 7
+}
