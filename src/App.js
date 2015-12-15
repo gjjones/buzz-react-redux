@@ -15,8 +15,8 @@ import { Router, Route, history } from 'react-router';
 const logger = createLogger({collapsed: true});
 const reducersApp = combineReducers(reducers);
 const createStoreWithMiddleware = applyMiddleware(
-	logger,
-	thunkMiddleware
+	thunkMiddleware,
+	logger
 );
 const finalCreateStore = compose(createStoreWithMiddleware, devTools())(createStore);
 const store = finalCreateStore(reducersApp);
