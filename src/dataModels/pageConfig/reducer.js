@@ -1,14 +1,15 @@
 import Immutable from 'immutable';
+import * as actionTypes from './actionTypes';
 
 const initialState = Immutable.List();
 
-export function pageTree(state = initialState, action) {
+export function reducer(state = initialState, action) {
 	switch (action.type) {
-	case 'PAGETREE_ADD':
+	case actionTypes.ADD:
 		return state.push(action.payload);
-	case 'PAGETREE_DELETE':
+	case actionTypes.DELETE:
 		return state.shift();
-	case 'PAGETREE_SET':
+	case actionTypes.SET:
 		return Immutable.List(action.payload);
 	default:
 		return state;

@@ -3,7 +3,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 import { Button, Spinner } from 'components';
 import * as containers from 'containers';
-import * as actionCreators from 'actions/pageTree';
+import { actions as pageConfigActionCreators} from 'dataModels/pageConfig';
 import { actions as spotlightActionCreators } from 'dataModels/spotlight';
 
 const { Buzz } = containers;
@@ -13,7 +13,7 @@ var Demo = React.createClass({
 	mixins: [PureRenderMixin],
 
 	render: function() {
-		const { pageTree, spotlight } = this.props;
+		const { pageConfig, spotlight } = this.props;
 		const _addClick = (componentType) => {
 			this.props.add(componentType);
 		};
@@ -34,7 +34,7 @@ var Demo = React.createClass({
 		return (
 		<div>
 			<div className="form-group">
-				<textarea value={JSON.stringify(pageTree.toJS(), null, '\t')} onChange={_textAreaChange} />
+				<textarea value={JSON.stringify(pageConfig.toJS(), null, '\t')} onChange={_textAreaChange} />
 				<div>
 					<Button className="primary" onClick={() => _addClick({name:'div', children: ['Sick div, bruh']})}>add div</Button>
 					{' '}
@@ -63,11 +63,11 @@ var Demo = React.createClass({
 var mapStateToProps = function(state) {
 	return {
 		spotlight: state.spotlight,
-		pageTree: state.pageTree
+		pageConfig: state.pageConfig
 	};
 };
 
 export default connect(
 	mapStateToProps,
-	{ ...actionCreators, ...spotlightActionCreators }
+	{ ...pageConfigActionCreators, ...spotlightActionCreators }
 )(Demo)

@@ -15,7 +15,7 @@ const initialState = Immutable.fromJS({
 });
 
 // Always export reducer function as default
-export default function (state = initialState, action) {
+export function reducer (state = initialState, action) {
 	switch (action.type) {
 	case actionTypes.FETCH:
 		return state.set('fetching', true);

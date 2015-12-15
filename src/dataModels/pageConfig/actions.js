@@ -1,19 +1,21 @@
+import * as actionTypes from './actionTypes';
+
 export function add(componentConfig) {
   return {
-    type: 'PAGETREE_ADD',
+    type: actionTypes.ADD,
     payload: componentConfig
   };
 }
 
 export function del() {
   return {
-    type: 'PAGETREE_DELETE'
+    type: actionTypes.DELETE
   };
 }
 
 export function set(pageConfig) {
   return {
-    type: 'PAGETREE_SET',
+    type: actionTypes.SET,
     payload: pageConfig
   };
 }

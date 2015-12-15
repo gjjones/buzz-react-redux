@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { compose, createStore, applyMiddleware, combineReducers } from 'redux';
 import {  Provider } from 'react-redux';
-import * as reducers from 'reducers';
+import * as reducers from './dataModels';
 import thunkMiddleware from 'redux-thunk';
 import createLogger from 'redux-logger';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';

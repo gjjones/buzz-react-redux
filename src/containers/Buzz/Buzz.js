@@ -33,9 +33,9 @@ var Buzz = React.createClass({
 	mixins: [PureRenderMixin],
 
 	render: function() {
-		const { pageTree } = this.props;
+		const { pageConfig } = this.props;
 
-		var _components = pageTree.map(mapChildComponents);
+		var _components = pageConfig.map(mapChildComponents);
 
 		return (
 		<div>
@@ -47,7 +47,7 @@ var Buzz = React.createClass({
 
 var mapStateToProps = function(state) {
 	return {
-		pageTree: state.pageTree
+		pageConfig: state.pageConfig
 	};
 };
 
