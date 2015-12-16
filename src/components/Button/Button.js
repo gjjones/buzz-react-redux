@@ -1,19 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import '!style!css!less!./style.less'
 
 import classNames from 'classnames';
 
-export default class Button extends Component {
-  render() {
-  	var { children, className, ...props } = this.props;
+const Button = ({className, children, ...props}) => (
+	<button className={classNames('btn', className)} {...props}>
+		{children}
+	</button>
+)
 
-	className = classNames('btn', className);
-
-    return (
-      <button className={className} {...props}>
-	      {children}
-      </button>
-    );
-  }
-}
+export default Button;

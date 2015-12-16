@@ -10,23 +10,23 @@ import { Demo } from 'containers';
 
 export default class Main extends Component {
 
-  render() {
-    const metaData = {
-      title: 'BuzzFramework Interface',
-      description: 'I am a description, and I can create multiple tags',
-      canonical: 'http://example.com/path/to/page',
-      meta: {
-        charset: 'utf-8',
-        name: {
-          keywords: 'buzz,react,meta,document,html,tags',
-        },
-      },
-    };
-    return (
-    	<div>
-	        <DocumentMeta {...metaData} />
-	    	<Demo />
-	    </div>
-    );
-  }
+	render() {
+		const metaData = {
+			title: 'BuzzFramework Interface',
+			description: 'I am a description, and I can create multiple tags',
+			canonical: 'http://example.com/path/to/page',
+			meta: {
+				charset: 'utf-8',
+				name: {
+					keywords: 'buzz,react,meta,document,html,tags',
+				},
+			},
+		};
+		return (
+			<div>
+				<DocumentMeta {...metaData} />
+				<Demo />
+			</div>
+		);
+	}
 }
